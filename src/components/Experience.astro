@@ -1,0 +1,21 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+const EXPERIENCE = [
+  {
+    date: "Agosto 2023",
+    title: "Desarrollador Frontend - Promolíder",
+    description:
+      "Colaboré en un equipo de desarrollo para implementar nuevas funcionalidades y mejoras en la interfaz de usuario de una web de aprendizaje virtual. Participé en el diseño y la implementación de componentes reutilizables con Vue.",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="mb-10 ms-6">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

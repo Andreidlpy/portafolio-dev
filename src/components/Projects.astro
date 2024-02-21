@@ -1,0 +1,69 @@
+---
+import NextJS from "./icons/NextJS.astro";
+import TailwindCSS from "./icons/TailwindCSS.astro";
+import React from "./icons/React.astro";
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    icon: TailwindCSS,
+    class: "bg-black text-white",
+  },
+  REACT: {
+    name: "REACT",
+    icon: React,
+    class: "bg-black text-white",
+  },
+};
+const PROJECTS = [
+  {
+    title: "Form Builder - Diseña tu propio formulario.",
+    description:
+      "Diseña formularios atractivos con nuestro Form Builder. Personaliza cada detalle, desde etiquetas hasta campos de entrada, con la adición de íconos modernos. Simplifica la creación de formularios con estilo y funcionalidad. ¡Optimiza la experiencia del usuario con nuestro Form Builder ahora! 🌟✨ #FormBuilder #DiseñoIntuitivo",
+    link: "https://svgl.vercel.app/",
+    github: "#",
+    image: "/projects/form-builder.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Snapgram - A beautiful shared photos",
+    description:
+      "Explora SnapGram, mi clon de Instagram donde compartimos instantes inolvidables. 📸✨ Únete para descubrir un espacio lleno de creatividad, conexiones y fotos impactantes. ¡Comparte tu historia visual ahora! 🚀 #SnapGramClone",
+    link: "https://snapgram-livid-zeta.vercel.app/",
+    github: "#",
+    image: "/projects/snapgram.webp",
+    tags: [TAGS.REACT, TAGS.TAILWIND],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, link, github, image, tags }) => (
+    <article>
+      <h3 class="text-2xl font-semibold  mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty text-gray-200/60">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${image}`}
+      />
+    </article>
+  ))
+}
